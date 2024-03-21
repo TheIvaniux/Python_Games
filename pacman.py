@@ -154,7 +154,7 @@ def move():
         if abs(pacman - ghost[0]) < 20:
             return
 
-    ontimer(move, 100)
+    ontimer(move, 25)
 
 
 
@@ -172,10 +172,10 @@ writer.goto(160, 160)
 writer.color('white')
 writer.write(state['score'])
 listen()
-onkey(lambda: change(5, 0), 'Right')
-onkey(lambda: change(-5, 0), 'Left')
-onkey(lambda: change(0, 5), 'Up')
-onkey(lambda: change(0, -5), 'Down')
+onkey(lambda: change(1, 0), 'Right')
+onkey(lambda: change(-1, 0), 'Left')
+onkey(lambda: change(0, 1), 'Up')
+onkey(lambda: change(0, -1), 'Down')
 world()
 move()
 done()
