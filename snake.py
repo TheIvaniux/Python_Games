@@ -54,6 +54,14 @@ def move():
         square(body.x, body.y, 9, 'black')
 
     square(food.x, food.y, 9, 'green')
+    
+    #if the food isn´t in the boundaries
+    if -190 < food.x < 180 and -190 < food.y < 180:
+        #5% chance of move
+        if (randrange(0,100,1) < 5):
+            food.x = food.x + (randrange(-1, 1) * 10)
+            food.y = food.y + (randrange(-1, 1) * 10)
+    
     update()
     ontimer(move, 100)
 
