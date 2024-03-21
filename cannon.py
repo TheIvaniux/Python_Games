@@ -68,12 +68,13 @@ def move():
         if abs(target - ball) > 13:
             targets.append(target)
 
+    # Wrap the ball around the screen
+    if ball.x < -200:
+        ball.x = 200 
+
     draw()
 
-    for target in targets:
-        if not inside(target):
-            return
-
+    #Change the speed of the projectile and balls by changing the number in ontimer
     ontimer(move, 20)
 
 
