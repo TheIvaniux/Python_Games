@@ -68,13 +68,13 @@ def move():
         if abs(target - ball) > 13:
             targets.append(target)
 
+    # Wrap the ball around the screen
+    if ball.x < -200:
+        ball.x = 200 
+
     draw()
 
-    for target in targets:
-        if not inside(target):
-            return
-
-    ontimer(move, 50)
+    ontimer(move, 20)
 
 
 setup(420, 420, 370, 0)
