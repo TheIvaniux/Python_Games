@@ -28,6 +28,13 @@ def inside(head):
     """Return True if head inside boundaries."""
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def randomColor():
+    """Return random color for snake and food."""
+    allcolors = ['black', 'blue', 'green', 'yellow', 'purple']
+    index=randrange(0, 5)
+    colorS = allcolors[index] 
+    colorF = allcolors[index-1]
+    return colorS, colorF
 
 def move():
     """Move snake forward one segment."""
@@ -51,14 +58,16 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colorS)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorF)
     update()
     ontimer(move, 100)
 
 
 setup(420, 420, 370, 0)
+#Set random color for snake and food
+colorS, colorF = randomColor()
 hideturtle()
 tracer(False)
 listen()
