@@ -74,6 +74,7 @@ def move():
 
     draw()
 
+    #Change the speed of the projectile and balls by changing the number in ontimer
     ontimer(move, 20)
 
 
