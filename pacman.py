@@ -107,6 +107,7 @@ def world():
                 path.dot(2, 'white')
 
 
+
 def move():
     """Move pacman and all ghosts."""
     writer.undo()
@@ -130,31 +131,31 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
-    for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
-        else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+    for ghost in ghosts:
+        # Calculate direction towards Pacman
+        direction = pacman - ghost[0]
+
+        # Normalize direction to move only one step
+        direction.x = int(direction.x / abs(direction.x)) if direction.x != 0 else 0
+        direction.y = int(direction.y / abs(direction.y)) if direction.y != 0 else 0
+
+        next_move = ghost[0] + direction
+
+        if valid(next_move):
+            ghost[0] = next_move
 
         up()
-        goto(point.x + 10, point.y + 10)
+        goto(ghost[0].x + 10, ghost[0].y + 10)
         dot(20, 'red')
 
     update()
 
-    for point, course in ghosts:
-        if abs(pacman - point) < 20:
+    for ghost in ghosts:
+        if abs(pacman - ghost[0]) < 20:
             return
 
     ontimer(move, 100)
+
 
 
 def change(x, y):
