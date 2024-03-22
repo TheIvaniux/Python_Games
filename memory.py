@@ -76,7 +76,10 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+        
+    if all(not hide[count] for count in range(64)):
+        print("La imagen fue completada")
+        
     update()
     ontimer(draw, 100)
 
