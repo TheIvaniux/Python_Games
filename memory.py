@@ -18,6 +18,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+available_colors = ['blue', 'green', 'red', 'purple', 'orange', 'yellow', 'cyan', 'magenta', 'lime', 'pink', 'teal', 'olive', 'navy', 'maroon', 'brown', 'aquamarine', 'crimson', 'indigo', 'gold', 'silver', 'lavender', 'plum', 'coral', 'peru', 'orchid', 'skyblue', 'violet', 'khaki', 'salmon', 'tan', 'black', 'gray']
 
 
 def square(x, y):
@@ -74,9 +75,14 @@ def draw():
         x, y = xy(mark)
         up()
         goto(x + 2, y)
-        color('black')
+        #Define a color for each number
+        color(available_colors[tiles[mark]])
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+    
+    #Know if the image was completed    
+    if all(not hide[count] for count in range(64)):
+        print("La imagen fue completada")
+        
     update()
     ontimer(draw, 100)
 
