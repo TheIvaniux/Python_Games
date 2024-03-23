@@ -18,7 +18,9 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+#More color options for the tiles
 available_colors = ['blue', 'green', 'red', 'purple', 'orange', 'yellow', 'cyan', 'magenta', 'lime', 'pink', 'teal', 'olive', 'navy', 'maroon', 'brown', 'aquamarine', 'crimson', 'indigo', 'gold', 'silver', 'lavender', 'plum', 'coral', 'peru', 'orchid', 'skyblue', 'violet', 'khaki', 'salmon', 'tan', 'black', 'gray']
+#Tap counter variable
 tapcounter = 0
 
 def square(x, y):
@@ -55,7 +57,7 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-
+    #Tap counter adder
     global tapcounter
     tapcounter += 1
 def draw():
@@ -72,6 +74,7 @@ def draw():
 
     mark = state['mark']
     goto(0,-250)
+    #tap counter print
     write('Number of taps: ' + str(tapcounter), align='center', font=('Arial', 24, 'normal'))
     if mark is not None and hide[mark]:
         x, y = xy(mark)
