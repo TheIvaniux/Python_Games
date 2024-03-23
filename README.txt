@@ -15,7 +15,12 @@ Objetivo: Probar nuestros conocimientos en manejo de versiones de software
 
 Descripción: Modificar y subir los cambios de videojuegos de la libreria _freegames_, a este mismo repositorio.
 
+Entra a https://pypi.org/project/freegames/ y sigue las instrucciones para descargar freegames en caso de que tu quieras realizar algo similar. 
 -----------------------------
+¿Cómo correr el proyecto?
+Descarga los códigos de Python, junto con la libreria de freegames y, ¡corre el juego que más te guste!
+
+------------------------------
 
 Juegos y modificaciones:
 
